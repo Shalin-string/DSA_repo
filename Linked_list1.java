@@ -4,8 +4,8 @@ public class Linked_list1 {
         s.addNode( 10);
         s.addNode( 20);
         s.addNode( 30);
-        s.addNode( 30);
-        s.addNode( 30);
+        s.addNode( 40);
+        s.addnodebeg(50);
 
         s.display();
         
@@ -35,6 +35,13 @@ class sl{
             System.out.println(tmp.data);
             tmp = tmp.next;
         }
+    }
+
+    void addnodebeg(int data){
+        Node tmp = new Node();
+        tmp.data = data;
+        tmp.next = head;
+        head = tmp;
     }
 }
 
