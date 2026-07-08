@@ -16,6 +16,13 @@ public class Linkedlistdemo {
             last = tmp;
         }
     }
+
+    void addNodeBEG(int num){
+        Node tmp = new Node();
+        tmp.data = num;
+        tmp.next = head;
+        head = tmp;
+    }
     
     void display(){
         Node p = head;
@@ -37,7 +44,10 @@ public class Linkedlistdemo {
         s.addNode( 40);
         s.addNode(50);
 
+        
+        s.addNodeBEG(90);
         s.display();
+
         
         
     }
