@@ -46,6 +46,20 @@ void display()
         p = p.next;    
     }
 }
+
+void count()
+{
+    Node p = head;
+    int count = 0;
+    while(p != null)
+    {
+        count++;
+        p = p.next;
+    }
+    System.out.println("Total Nodes Are : "+count);
+
+}
+
 public static void main(String[] args) 
     {
         LinnkListDemo2 list  = new LinnkListDemo2();
@@ -58,5 +72,7 @@ public static void main(String[] args)
 
         list.linearSearch(40);
         list.linearSearch(60);
+
+        list.count();
     }    
 }
