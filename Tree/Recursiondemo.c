@@ -2,9 +2,10 @@
 
 void add(int count)
 {
-    printf("Add\n");
-    count++;
-    if (count < 5)
+    
+    printf("%d\n",count);
+    count--;
+    if (count > 0)
     {
         add(count);
     }
@@ -13,7 +14,7 @@ void add(int count)
 
 int main()
 {
-    add(0);
+    add(5);
     
 
     return 0;
