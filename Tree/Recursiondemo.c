@@ -1,21 +1,18 @@
 #include <stdio.h>
 
-void add(int count)
+void printNum(int start, int end)
 {
-    
-    printf("%d\n",count);
-    count--;
-    if (count > 0)
+    printf("%d ",end);
+    if (start < end)
     {
-        add(count);
+        printNum(start, --end);
     }
-    
+       
 }
 
 int main()
 {
-    add(5);
-    
+    printNum(5,10);
 
     return 0;
 }
