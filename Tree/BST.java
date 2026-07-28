@@ -2,26 +2,31 @@ public class BST {
 
     public static void main(String[] args) {
 
-        BinarySearchTree bst = new BinarySearchTree();//root==> null
+        BinarySearchTree bst = new BinarySearchTree();// root==> null
 
-        bst.root = bst.addNode(bst.root, 20);//30
+        bst.root = bst.addNode(bst.root, 20);// 30
 
-        bst.addNode(bst.root, 5);//30
-        bst.addNode(bst.root, 1);//30
+        bst.addNode(bst.root, 5);// 30
+        bst.addNode(bst.root, 1);// 30
 
-        bst.addNode(bst.root, 15);//30
+        bst.addNode(bst.root, 15);// 30
 
-        bst.addNode(bst.root, 9);//30
+        bst.addNode(bst.root, 9);// 30
 
-        bst.addNode(bst.root, 12);//30
+        bst.addNode(bst.root, 12);// 30
 
-        bst.addNode(bst.root, 30);//30
+        bst.addNode(bst.root, 30);// 30
 
-        bst.addNode(bst.root, 25);//30
+        bst.addNode(bst.root, 25);// 30
 
-        bst.addNode(bst.root, 40);//30
+        bst.addNode(bst.root, 40);// 30
 
-        bst.inOrder(bst.root);//asc 
+        
+        System.out.println(bst.search(bst.root, 12));
+        System.out.println("\ndelete 12\n");
+        bst.deleteNode(bst.root, 12);
+        bst.inOrder(bst.root);// asc
+
     }
 }
 
@@ -29,7 +34,7 @@ class BinarySearchTree {
 
     Node root;
 
-    Node addNode(Node localRoot, int data) {//null,90
+    Node addNode(Node localRoot, int data) {// null,90
         if (localRoot == null) { //
             localRoot = new Node();
             localRoot.data = data;
@@ -37,8 +42,8 @@ class BinarySearchTree {
             localRoot.right = null;
             return localRoot;
         } else {
-            if (data > localRoot.data) {//90 > 60 
-                localRoot.right = addNode(localRoot.right, data);//null,90
+            if (data > localRoot.data) {// 90 > 60
+                localRoot.right = addNode(localRoot.right, data);// null,90
             } else {
                 localRoot.left = addNode(localRoot.left, data);
             }
@@ -69,6 +74,42 @@ class BinarySearchTree {
             System.out.println(root.data);
 
         }
+    }
+
+    boolean search(Node root, int key) {
+        if (root != null) {
+            if (root.data == key) {
+                return true;
+            } else if (key > root.data) {
+                return search(root.right, key);
+            } else {
+                return search(root.left, key);
+            }
+        }
+        return false;
+    }
+
+    Node deleteNode(Node root, int key) {
+        if (root != null) {
+            if (root.data == key) {
+                if (root.left == null && root.right == null) {
+                    return null;
+                } else if (root.left == null) {
+                    return root.right;
+                } else if (root.right == null) {
+                    return root.left;
+                } else {
+
+                }
+
+            } else if (key > root.data) {
+                root.right = deleteNode(root.right, key);
+            } else {
+                root.left = deleteNode(root.left, key);
+            }
+            return root;
+        }
+        return null;
     }
 }
 
