@@ -26,7 +26,11 @@ public class BST {
         System.out.println("\ndelete 12\n");
         bst.deleteNode(bst.root, 12);
         bst.inOrder(bst.root);// asc
-
+        System.out.println("\ndelete 25\n");
+        bst.deleteNode(bst.root, 20);
+        bst.inOrder(bst.root);// asc
+        System.out.println("\nmain root\n");
+        System.out.println(bst.root.data);
     }
 }
 
@@ -89,6 +93,13 @@ class BinarySearchTree {
         return false;
     }
 
+    Node findMin(Node root){
+        if(root != null && root.left != null){
+            return findMin(root.left);
+        }
+        return root;
+    }
+
     Node deleteNode(Node root, int key) {
         if (root != null) {
             if (root.data == key) {
@@ -99,7 +110,11 @@ class BinarySearchTree {
                 } else if (root.right == null) {
                     return root.left;
                 } else {
-
+                    System.out.println("Node with two children");
+                    Node smallestNode = findMin(root.right);
+                    this.root.data = smallestNode.data;
+                    deleteNode(this.root.right, smallestNode.data);
+                    return root;
                 }
 
             } else if (key > root.data) {
@@ -109,7 +124,7 @@ class BinarySearchTree {
             }
             return root;
         }
-        return null;
+        return root;
     }
 }
 
