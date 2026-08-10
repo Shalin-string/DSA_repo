@@ -27,6 +27,15 @@ public class Graph1 {
             System.out.println();
         }
 
+        System.out.println("Enter the source vertex");
+        int fsource = scr.nextInt();
+
+        for (int i = 0; i < v; i++) {
+            if (arr[fsource][i] == 1) {
+                System.out.println("Edge from " + fsource + " to " + i);
+            }
+        }
+
     }
     
 }
