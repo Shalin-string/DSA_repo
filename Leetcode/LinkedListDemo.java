@@ -4,24 +4,23 @@ import java.util.LinkedList;
 public class LinkedListDemo {
     public static void main(String[] args) {
         
-     LinkedList<Integer> l1 = new LinkedList<>();
-
-        l1.add(1);
-        l1.add(2);
-        l1.add(3);
-        l1.add(4);
-        l1.add(5);
-        l1.add(10);
-        l1.add(20);
-        l1.add(30);
-        l1.add(40);
-        l1.add(50);
-        // System.out.println(l1); 
-        Collections.reverse(l1);
-        System.out.println(l1); 
-        
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        System.out.println(reverse(arr));
         // l1.remove(l1.size() - 7);
         // System.out.print(l1);
 
+    }
+
+    public static removeElement(int[] arr, int n){
+        
+    }
+
+    public static LinkedList<Integer> reverse(int[] arr) {
+        LinkedList<Integer> l1 = new LinkedList<>();
+        for (int i : arr) {
+            l1.add(i);
+        }
+        Collections.reverse(l1);
+        return l1;
     }
 }
