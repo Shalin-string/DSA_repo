@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import javax.print.attribute.standard.Destination;
 
 public class GraphDyn {
     public static void main(String[] args) {
@@ -33,13 +32,3 @@ class Edge{
     int src;
     int dest;
 }
-
-/*
-10 1
-1 11 
-11 6
-6 10
-10 7
-7 1
-7 11
- */
