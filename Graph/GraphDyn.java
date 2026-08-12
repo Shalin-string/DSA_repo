@@ -21,8 +21,16 @@ public class GraphDyn {
         }
         System.out.println("Source "+" : "+"Destination");
         for(int i=0;i<14;i++){
-            System.out.println(edge.get(i).src + " : "+edge.get(i).dest);
+            // System.out.println(edge.get(i).src + " : "+edge.get(i).dest);
 
+        }
+
+        System.out.println("Enter source :");
+        int data = src.nextInt();
+        for(int i=0;i<14;i++){
+            if (data == edge.get(i).src) {
+                System.out.println(edge.get(i).src + " : "+edge.get(i).dest);
+            }
         }
     }
 
