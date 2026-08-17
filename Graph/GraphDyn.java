@@ -10,14 +10,16 @@ public class GraphDyn {
         int Av_edges = src.nextInt();
         for (int i = 1; i <= Av_edges; i++) {
             Edge e = new Edge();
-            System.out.println("Enter source and destination : ");
+            System.out.println("Enter source, destination and cost : ");
             e.src = src.nextInt();
             e.dest = src.nextInt();
+            e.cost = src.nextInt();
             edge.add(e);
 
             Edge rev = new Edge();
             rev.src = e.dest;
             rev.dest = e.src;
+            rev.cost = e.cost;
             edge.add(rev);
         }
         System.out.println("Source " + " : " + "Destination");
@@ -38,7 +40,10 @@ public class GraphDyn {
         int curr = src.nextInt();
         ArrayList<Integer> vis = new ArrayList<>();
         gdma.dfs(curr, vis, edge);
+        System.out.println("Total cost  = "+ TotalCost);
+        src.close();
     }
+    static int TotalCost = 0;
 
     void dfs(int current, ArrayList<Integer> visited, ArrayList<Edge> edges) {
         System.out.println("current visiting vertext : "+current);
@@ -46,15 +51,20 @@ public class GraphDyn {
         for(int i=0; i<edges.size();i++){
             if (edges.get(i).src == current && !(visited.contains(edges.get(i).dest))) {
                 current = edges.get(i).dest;
+                TotalCost += edges.get(i).cost;
                 dfs(current, visited, edges);
                 System.out.println("Current visiting vertext -> rev : "+current);
             }
-        }
-    }
 
+        }
+        
+    }
+    
 }
 
 class Edge {
     int src;
     int dest;
+    int cost;
 }
+
